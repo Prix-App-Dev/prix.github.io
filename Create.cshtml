@@ -1,0 +1,212 @@
+﻿@model ACETAPP.Models.PreRegistrationMaster
+
+@{
+    ViewData["Title"] = "New Registration";
+}
+
+<div class="bg-primary p-2 text-white mt-2">
+    <h4>New Registration Form</h4>
+</div>
+<hr />
+
+<div>
+    <form asp-action="Create" id="preRegForm" asp-asp-controller="PreRegistrationMasters" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="FatherName" class="control-label"></label>
+                    <input asp-for="FatherName" class="form-control" />
+                    <span asp-validation-for="FatherName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label"></label>
+                    <select asp-for="Gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Not Specified">Not Specified</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="State" class="control-label"></label>
+                    <select asp-for="State" class="form-control" asp-items="ViewBag.StateId"></select>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="MobileNo" class="control-label"></label>
+                    <input asp-for="MobileNo" class="form-control" />
+                    <span asp-validation-for="MobileNo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="LastInstitute" class="control-label"></label>
+                    <input asp-for="LastInstitute" class="form-control" />
+                    <span asp-validation-for="LastInstitute" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label"></label>
+                    <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <label asp-for="EmpId" class="control-label"></label>
+                    <select asp-for="EmpId" class="form-control" asp-items="ViewBag.EmpId"></select>
+                </div>
+            </div>            
+        </div>
+        <div class="row mt-1">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="form-group">
+                    <input type="submit" value="Save & Print" class="btn btn-primary" id="btnSubmit" />
+                    <a class="btn btn-outline-dark" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+
+        @* <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group">
+        <label asp-for="Remarks" class="control-label"></label>
+        <input asp-for="Remarks" class="form-control" />
+        <span asp-validation-for="Remarks" class="text-danger"></span>
+        </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="form-group form-check">
+        <label class="form-check-label">
+        <input class="form-check-input" asp-for="AgcNestSuggested" /> @Html.DisplayNameFor(model => model.AgcNestSuggested)
+        </label>
+        </div>
+        </div>
+        <div class="form-group">
+        <label asp-for="ApplicationMod" class="control-label"></label>
+        <input asp-for="ApplicationMod" class="form-control" />
+        <span asp-validation-for="ApplicationMod" class="text-danger"></span>
+        </div> 
+        <div class="form-group">
+        <label asp-for="SessionId" class="control-label"></label>
+        <select asp-for="SessionId" class="form-control" asp-items="ViewBag.SessionId"></select>
+        <span asp-validation-for="SessionId" class="text-danger"></span>
+        </div> *@
+    </form>
+</div>
+@* <partial name="_Toast" /> *@
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Mobile Verification</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // $('#btnSubmit').click(function () {
+            //     let url = "@Url.Action("sendOtp", "PreRegistrationMasters")";
+            //     let mobileno = $('#MobileNo').val();
+            //       $.getJSON(url, { mobileno: mobileno }).done(function (data) { alert(data); }).fail(function (error) { alert(error); })
+            // });
+
+            $('#myModal').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
+
+            $('#preRegForm').submit(function (e) {
+                e.preventDefault();
+                // Perform AJAX submission
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: $(this).attr('method'),
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        // Inject the partial view content into the modal
+
+                        $('#myModal .modal-body').html(data);
+                        // Open the modal
+                        $('#myModal').modal('show');
+                    }
+                });
+            });
+
+
+            $('body').delegate('.verify', 'click', function (e) {
+                e.preventDefault();
+                if ($('#Otp').val().trim() == "") {
+                    alert("Please Enter Otp");
+                    return false;
+                }
+                else {
+                    $.ajax({
+                        url: $('#otpForm').attr('action'),
+                        type: $('#otpForm').attr('method'),
+                        data: $('#otpForm').serialize(),
+                        success: function (data) {
+                            // Inject the partial view content into the modal
+                            if (data.error) {
+                                alert(data.errorMessage);
+                                $('#myModal .modal-body').html($('#otpForm'));
+                                // Open the modal
+                                $('#myModal').modal('show');
+                            }
+                            else {
+                                document.location.href = "/PreRegistrationMasters/Create";
+                                return true;
+                            }
+                        }
+                    });
+                }
+            });
+        })
+        function verify() {
+            alert('hi');
+            return false;
+        }
+    </script>
+}
